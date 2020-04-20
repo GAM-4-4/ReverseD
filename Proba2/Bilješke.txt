@@ -1,0 +1,11 @@
+Vesna Brala
+Odobren;16.04.2020.,420
+Odobren;14.04.2020.,ZABRANI PRAZNE BILJEŠKE
+Odobren;14.04.2020.,Jel radi?
+Odobren;14.04.2020.,Test3
+Odobren;13.12.2020.,Test2
+Odobren;13.12.2020.,Test1
+Odobren;12.12.2020.,Test
+Odobren;10.12.2020.,HUEHUEHUEHUEHUHEUHEUHEUHEUHEU
+Odobren;10.12.2020.,When mathematical structures are good models of real phenomena, mathematical reasoning can be used to provide insight or predictions about nature. Through the use of abstraction and logic, mathematics developed from counting, calculation, measurement, and the systematic study of the shapes and motions of physical objects. Practical mathematics has been a human activity from as far back as written records exist. The research required to solve mathematical problems can take years or even centuries of sustained inquiry.
+End

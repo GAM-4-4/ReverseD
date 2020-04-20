@@ -15,33 +15,37 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Desktop\WindowsProject1\cApp.cpp">
+    <ClCompile Include="cApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Desktop\WindowsProject1\cDnevnik.cpp">
+    <ClCompile Include="cMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Desktop\WindowsProject1\cMain.cpp">
+    <ClCompile Include="cDnevnik.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cUcitelj.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\..\..\Desktop\WindowsProject1\Text.txt">
-      <Filter>Source Files</Filter>
-    </Text>
-    <Text Include="..\..\..\..\Desktop\WindowsProject1\Korisnici.txt">
-      <Filter>Source Files</Filter>
-    </Text>
+    <ClInclude Include="cApp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cMain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cDnevnik.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cUcitelj.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Desktop\WindowsProject1\cApp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Desktop\WindowsProject1\cDnevnik.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Desktop\WindowsProject1\cMain.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <Text Include="Text.txt" />
+    <Text Include="Učitelji.txt" />
+    <Text Include="Bilješke.txt" />
+    <Text Include="Škole.txt" />
   </ItemGroup>
 </Project>

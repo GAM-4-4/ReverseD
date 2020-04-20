@@ -1,7 +1,1 @@
-﻿  cApp.cpp
-c1xx : fatal error C1083: Cannot open source file: '..\..\..\..\Desktop\WindowsProject1\cApp.cpp': No such file or directory
-  cDnevnik.cpp
-c1xx : fatal error C1083: Cannot open source file: '..\..\..\..\Desktop\WindowsProject1\cDnevnik.cpp': No such file or directory
-  cMain.cpp
-c1xx : fatal error C1083: Cannot open source file: '..\..\..\..\Desktop\WindowsProject1\cMain.cpp': No such file or directory
-  Generating Code...
+﻿x64\Debug\cApp.obj : fatal error LNK1112: module machine type 'x64' conflicts with target machine type 'x86'

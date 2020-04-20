@@ -1,5 +1,9 @@
-﻿  cApp.cpp
-  cDnevnik.cpp
-  cMain.cpp
+﻿  cDnevnik.cpp
+  cUcitelj.cpp
+C:\Users\Naomi\source\repos\Isusarija\Proba2\cUcitelj.cpp(130,47): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Naomi\source\repos\Isusarija\Proba2\cUcitelj.cpp(240,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Naomi\source\repos\Isusarija\Proba2\cUcitelj.cpp(314,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Naomi\source\repos\Isusarija\Proba2\cUcitelj.cpp(327,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Naomi\source\repos\Isusarija\Proba2\cUcitelj.cpp(343,21): warning C4018: '<': signed/unsigned mismatch
   Generating Code...
-  Proba2.vcxproj -> C:\Users\Naomi\source\repos\Proba2 – kopija\Debug\Proba2.exe
+  Proba2.vcxproj -> C:\Users\Naomi\source\repos\Isusarija\Debug\Proba2.exe

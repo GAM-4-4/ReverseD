@@ -1,0 +1,43 @@
+Gimnazija Andrije Mohorovièiæa Rijeka
+Vesna Brala, Odnos prema radu, 1R, 1, 2, 2R, 3, 3, 4, 3R, 4, 1, 1, 4R, 5, 1, 1, 2, Helpfulness, 1R, 1, 1, 2, 2R, 3, 4, 3R, 4, 1, 4R, 5, 1, 2, Težina ispita u odnosu na predavano, 1R, 1, 2, 2R, 3, 4, 3R, 4, 1, 4R, 1, 2, Kraj
+Blanka Franoliæ Inðiæ, Odnos prema radu, 1R, 2R, 3R, 4R, 1, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Biljana Valentin Ban, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Goran Krapiæ, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Katarina Bogatec Ðumlin, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Tanja Perkiæ Dizdareviæ, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Liliana Iviæ, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Jelka Barbaliæ, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Ðosi Cetina Romih, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Krajs
+Danica Stevoviæ, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Larisa Karliæ Franjkoviæ, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Dijana Gašparoviæ Rukavina, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Sabrina Herceg, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Katharina Wolff, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Valerija Brelih, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Marija Crnkoviæ, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Danijel Hribar, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Višnja Pešut, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Fedora Vidas Dejhalla, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Anðela Moriæ, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Goran Boneta, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Patricija Nikolaus, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Petar Jelaèa, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Tvrtko Buger, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Emica Panduriæ, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Milka Dajak, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Vjekoslav Šinko, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Filip Radan, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Ana Buchberger Ðakoviæ, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Doris Žibert, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Ivan Vitas, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Hrvoje Tomljanoviæ, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Maja Zalokar, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Andrea Kopri, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Nives Poklepoviæ, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Toni Žitko, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+David Karasman, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Vesna Rajnoviæ, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Vesna Stipèiæ Sladoviæ, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Marija Škarica, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+Marijana Glaviæ, Odnos prema radu, 1R, 2R, 3R, 4R, Helpfulness, 1R, 2R, 3R, 4R, Težina ispita u odnosu na predavano, 1R, 2R, 3R, 4R, Kraj
+End

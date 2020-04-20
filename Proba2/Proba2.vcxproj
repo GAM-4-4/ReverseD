@@ -19,18 +19,22 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Desktop\WindowsProject1\cApp.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\WindowsProject1\cDnevnik.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\WindowsProject1\cMain.cpp" />
+    <ClCompile Include="cApp.cpp" />
+    <ClCompile Include="cDnevnik.cpp" />
+    <ClCompile Include="cMain.cpp" />
+    <ClCompile Include="cUcitelj.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\..\..\Desktop\WindowsProject1\Korisnici.txt" />
-    <Text Include="..\..\..\..\Desktop\WindowsProject1\Text.txt" />
+    <ClInclude Include="cApp.h" />
+    <ClInclude Include="cDnevnik.h" />
+    <ClInclude Include="cMain.h" />
+    <ClInclude Include="cUcitelj.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Desktop\WindowsProject1\cApp.h" />
-    <ClInclude Include="..\..\..\..\Desktop\WindowsProject1\cDnevnik.h" />
-    <ClInclude Include="..\..\..\..\Desktop\WindowsProject1\cMain.h" />
+    <Text Include="Text.txt" />
+    <Text Include="Bilješke.txt" />
+    <Text Include="Škole.txt" />
+    <Text Include="Učitelji.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -38,7 +42,6 @@
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Proba2</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Isus Krist</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -119,12 +122,15 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(WXWIN)\include; $(WXWIN)\include\msvc</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_lib</AdditionalLibraryDirectories>
+      <TargetMachine>MachineX64</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -155,14 +161,17 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(WXWIN)\include; $(WXWIN)\include\msvc</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_lib</AdditionalLibraryDirectories>
+      <TargetMachine>MachineX64</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
