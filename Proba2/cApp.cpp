@@ -33,7 +33,7 @@ cApp::~cApp() {
 //Funkcija koja stvara prvi prozor pri paljenju programa (OnInit = On initalisation)
 
 bool cApp::OnInit() {
-	m_frame1 = new cMain();
+	m_frame1 = new FormLogin(wxT("Log In"));
 	m_frame1->Show();
 	return true;
 }

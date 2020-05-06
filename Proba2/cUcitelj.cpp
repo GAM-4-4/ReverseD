@@ -9,16 +9,21 @@
 
 using namespace std;
 
-//Slušaj za ove eventove
+
 wxBEGIN_EVENT_TABLE(cUcitelj, wxMDIChildFrame)
+
 EVT_BUTTON(10001, UB)
 EVT_BUTTON(10002, UO)
+EVT_BUTTON(10004, Spremi)
+EVT_BUTTON(10005, Obriši)
+EVT_BUTTON(10006, Next)
 wxEND_EVENT_TABLE()
 
 
 
 //Vidi je uneseno broj od 1 do 5 (u stringu)
-bool JelSmije(string ocjena) {
+bool JelSmije(string ocjenaUnesena) {
+	string ocjena = ocjenaUnesena.substr(0, 1);
 	if (ocjena == "1") {
 		return true;
 	}
@@ -40,7 +45,6 @@ bool JelSmije(string ocjena) {
 }
 
 //Gledajuæ red koji sadrži podatke tog profesora, izvadi ocjene po kriterijima, izmeðu ocjena svakog kriterija stavi "end"
-//Napravi to kasnije fo funkciju s unosivim markerima
 
 wxArrayString Podatci1R(wxArrayString podatci) {
 	wxArrayString R1;
@@ -134,11 +138,10 @@ wxArrayString Podatci4R(wxArrayString podatci) {
 	return R4;
 }
 
+//Iz arraya sa ocjenama spejsanim po kriteriju i odvojenim po razredima daj array sa vrijednostima prosjeka po razredima po kriterijima 
 
-//Daj srednje vrijednosti svake rubrike u array
 wxArrayString SrednjeVrijednosti(wxArrayString podatci1, wxArrayString podatci2, wxArrayString podatci3, wxArrayString podatci4) {
 	wxArrayString ukupniPodatci;
-	//Daj srednu vrijednost brojeva koje si vidio do end, kad end resetaj na start i ponovo
 	for (int i = 0; i < 3; i++) {
 		double zbroj = 0;
 		int brojbr = 0;
@@ -196,10 +199,11 @@ wxArrayString SrednjeVrijednosti(wxArrayString podatci1, wxArrayString podatci2,
 
 
 //Daje trenutno vrijeme dan.mjesec.godina.
-//wxDateTime Sad = wxDateTime::Now();
-//wxString vrijemeSad = Sad.Format("%d.%m.%Y.", wxDateTime::CET).c_str();
+wxDateTime Sad = wxDateTime::Now();
+wxString vrijemeSad = Sad.Format("%d.%m.%Y.", wxDateTime::CET).c_str();
 
-//Piši u Bilješke.txt
+//Wrajtaj mi u bilješke
+
 void StringWriteTo1(string unos) {
 	FILE* korisnici = fopen("Bilješke.txt", "a");
 	const char* uneseno = unos.c_str();
@@ -212,56 +216,57 @@ void StringWriteTo1(string unos) {
 //Funkcija za unest bilješku u listu, ne unosi automatski u tabelu
 
 void cUcitelj::UB(wxCommandEvent& evt) {
-	//Daje trenutno vrijeme dan.mjesec.godina.
-	wxDateTime Sad = wxDateTime::Now();
-	wxString vrijemeSad = Sad.Format("%d.%m.%Y.", wxDateTime::CET).c_str();
-	//Formatiraj status;datum.bilješka
-	string s1 = "NeOdobren;" + vrijemeSad.ToStdString() + "," + m_bilješka->GetValue().ToStdString() + ",";
+	if ((m_bilješka->GetValue().ToStdString() != "Unesi bilješku") && !(m_bilješka->IsEmpty()) && (m_bilješka->GetValue().ToStdString() != "Neuspjeh. Unesi bilješku") && (m_bilješka->GetValue().ToStdString() != "Bilješka uspješno unesena")) {
+			//Daje trenutno vrijeme dan.mjesec.godina.
+			wxDateTime Sad = wxDateTime::Now();
+			wxString vrijemeSad = Sad.Format("%d.%m.%Y.", wxDateTime::CET).c_str();
+			string s1 = "NeOdobren;" + vrijemeSad.ToStdString() + "," + m_bilješka->GetValue().ToStdString();
 
 
-	vector <string> redovi;
-	string RedT;
-	ifstream Bilješke("Bilješke.txt");
+			vector <string> redovi;
+			string RedT;
+			ifstream Bilješke("Bilješke.txt");
 
 
-	//Stavi sve redove u vektor
-	while (getline(Bilješke, RedT)) {
-		redovi.push_back(RedT);
+			//Stavi sve redove u vektor
+			while (getline(Bilješke, RedT)) {
+				redovi.push_back(RedT);
+			}
+		//Obriši sve u fajlu
+		FILE* Bilješke1 = fopen("Bilješke.txt", "w");
+		fputs("", Bilješke1);
+
+		extern wxString ucitelj;
+
+		bool uciteljJe = false;
+
+		//Stavi red po red natrag u fajl t.k.d. najnoviji doðe prije "End," pod uèitelj kojem je namjenjen
+		for (int i = 0; i < redovi.size(); i++) {
+			if (redovi[i] == ucitelj.ToStdString()) {
+				uciteljJe = true;
+			}
+			if (uciteljJe) {
+				StringWriteTo1(redovi[i]);
+				StringWriteTo1(s1);
+				uciteljJe = false;
+			}
+			else {
+				StringWriteTo1(redovi[i]);
+			}
+		}
+		//Reci korisniku da je uspjelo
+		m_bilješka->~wxTextCtrl();
+		m_bilješka = new wxTextCtrl(this, wxID_ANY, "Bilješka uspješno unesena", wxPoint(50, 700), wxSize(375, 50));
 	}
-	//Obriši sve u fajlu
-	FILE* Bilješke1 = fopen("Bilješke.txt", "w");
-	fputs("", Bilješke1);
-
-	extern wxString ucitelj;
-
-	bool uciteljJe = false;
-
-	//Stavi red po red natrag u fajl t.k.d. najnoviji odma poslije imena uèitelja kojem je namijenjen
-	for (int i = 0; i < redovi.size(); i++) {
-		if (redovi[i] == ucitelj.ToStdString()) {
-			uciteljJe = true;
-		}
-		if (uciteljJe) {
-			StringWriteTo1(redovi[i]);
-			StringWriteTo1(s1);
-			uciteljJe = false;
-		}
-		else {
-			StringWriteTo1(redovi[i]);
-		}
+	else {
+		//Reci korisniku da nije uspjelos
+		m_bilješka->~wxTextCtrl();
+		m_bilješka = new wxTextCtrl(this, wxID_ANY, "Neuspjeh. Unesi bilješku", wxPoint(50, 700), wxSize(375, 50));
 	}
-
-	//Testovi
-
-	//m_gridbilješke->InsertRows((m_gridbilješke->GetNumberRows() + 1), 1);
-
-	//m_gridbilješke->SetCellValue((m_gridbilješke->GetNumberRows()-1), 0, vrijemeSad);
-	//m_gridbilješke->SetCellValue((m_gridbilješke->GetNumberRows()-1), 1, m_bilješka->GetValue());
-
 
 }
+//Unesi ocjenu odnosno o razredu odma poslje oznake razreda u ocjenama 
 
-//Splitaj string po zarezu
 vector<string> SplitString1(string Red) {
 	vector <string> rastavljen;
 	while (Red.find(",") != std::string::npos) {
@@ -272,7 +277,7 @@ vector<string> SplitString1(string Red) {
 
 }
 
-//Piši u Uèitelj.txt
+//Za zapisat u Uèitelji.txt
 void StringWriteTo2(string unos) {
 	FILE* korisnici = fopen("Uèitelji.txt", "a");
 	const char* uneseno = unos.c_str();
@@ -281,12 +286,19 @@ void StringWriteTo2(string unos) {
 	fclose(korisnici);
 }
 
+
 //Funkcija za unest ocjenu, unese ju odma poslije razreda korisnika u Uèitelj.txt
 
 void cUcitelj::UO(wxCommandEvent& evt) {
 
+	vector <string> kriteriji;
+
+	kriteriji.push_back("Odnos prema radu");
+	kriteriji.push_back("Helpfulness");
+	kriteriji.push_back("Težina ispita u odnosu na predavano");
+
 	string ocjena = m_ocjena->GetValue().ToStdString();
-	//Mora bit od 1 do 5
+
 	if (JelSmije(ocjena)) {
 		vector <string> redovi;
 		string RedT;
@@ -297,52 +309,63 @@ void cUcitelj::UO(wxCommandEvent& evt) {
 
 		bool umetni = false;
 
-		//MAKNI OVO KASNIJE OVO JE SAMO ZA PROBU !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		string razred = "4R";
+		extern string razred;
 
 		//Stavi sve redove u vektor
 
 		while (getline(Uèitelji, RedT)) {
 			string ime = RedT.substr(0, RedT.find(","));
-
-			//Ako je dobar red (uèitelj ime je toèno)
+			//Kad doðeš do korektnog uèitelja
 			if (ime == ucitelj1) {
-				//Splitaj u array
-				vector <string> rastavljen = SplitString1(RedT);
 
-				//Odi po cijelom arrayu
+				vector <string> rastavljen = SplitString1(RedT);
+				bool dobarKriterij = false;
+				//Proði sve elemente tog reda koji opisuje uèitelja
 				for (int i = 0; i < rastavljen.size(); i++) {
-					//Ako je taman iteration prije bio razred, umetni unešenu ocjenu poslije razreda i ubi
 					if (umetni) {
-						rastavljen.insert(rastavljen.begin() + i, ocjena);
+						//Kad si našao toènog uèitelja i prošao uneseni kriterij
+						rastavljen.insert(rastavljen.begin() + i, ocjena.substr(0, 1));
 						break;
 					}
-					//Ako je taman na razredu koji se traži
-					if (rastavljen[i] == razred) {
+					//Gleda jel prošo dobar kriterij i èeka da doðe oznaka dobrog razred
+					if (rastavljen[i] == razred && dobarKriterij) {
 						umetni = true;
 					}
+					//Jel kriterij koji je unesen unesen
+					if (rastavljen[i] == kriteriji[stoi(ocjena.substr(2, 1)) - 1]) {
+						dobarKriterij = true;
+					}
 				}
-				//Spoji taj updejtan array natrag u string i stvi u vector koji drži cijeli fajl 
+				//Unesi taj updejtan string natrag u vektor
 				string updated;
 				for (int j = 0; j < rastavljen.size(); j++) {
 					updated = updated + rastavljen[j] + ", ";
 				}
 				updated = updated + "Kraj";
 				redovi.push_back(updated);
+				//Potvrda u unosu
+				m_ocjena->~wxTextCtrl();
+				m_ocjena = new wxTextCtrl(this, wxID_ANY, "Ocjena uspješno unesena", wxPoint(50, 630), wxSize(375, 50));
 			}
-			//Stavi dani red u vekto sa svim redovima
+
 			else {
 				redovi.push_back(RedT);
 			}
 		}
 
-
+		//Zapiši sve natrag u tekst fajl
 		FILE* Uèitelji1 = fopen("Uèitelji.txt", "w");
 		fputs("", Uèitelji1);
-		//U prazan fajl unesi vektor item po item da dobiš isto formatirano
+
 		for (int i = 0; i < redovi.size(); i++) {
 			StringWriteTo2(redovi[i]);
 		}
+	}
+
+	else {
+		//Poruka za fail
+		m_ocjena->~wxTextCtrl();
+		m_ocjena = new wxTextCtrl(this, wxID_ANY, "Ocjena nije od 1 do 5", wxPoint(50, 630), wxSize(375, 50));
 	}
 
 }
@@ -363,25 +386,128 @@ string RazbiNaRedove(string red) {
 	return Gotovo;
 }
 
+int brojBilješke = 0;
+vector <string> BilješkeVec;
 
+//Funkcija za odobrit bilješku
+void cUcitelj::Spremi(wxCommandEvent& evt) {
+	string red = BilješkeVec[brojBilješke];
+	string unesi = "Odobren;" + red.substr(red.find(";") + 1, red.length() - 1);
+	BilješkeVec.insert(BilješkeVec.begin() + brojBilješke, unesi);
+	BilješkeVec.erase(BilješkeVec.begin() + brojBilješke + 1);
+
+	extern wxString ucitelj;
+
+	vector <string> redovi;
+	string RedT;
+	ifstream ABilješke("Bilješke.txt");
+
+
+	//Stavi sve redove u vektor
+	while (getline(ABilješke, RedT)) {
+		redovi.push_back(RedT);
+	}
+	//Obriši sve u fajlu
+	FILE* ABilješke1 = fopen("Bilješke.txt", "w");
+	fputs("", ABilješke1);
+
+	vector <string> popravljen;
+	bool nijeUcitelj = true;
+	bool traziEnd = false;
+	bool naslaEnd = false;
+ 
+	for (int i = 0; i < redovi.size(); i++) {
+		
+		if (nijeUcitelj) {
+			popravljen.push_back(redovi[i]);
+			//Kad naðeš dobru bilješku koja se poklapa sa onom u textboxu spremi ju kao odobrenu
+			if (redovi[i] == ucitelj) {
+				nijeUcitelj = false;
+				traziEnd = true;
+
+				for (int j = 0; j < BilješkeVec.size(); j++) {
+					popravljen.push_back(BilješkeVec[j]);
+				}
+			}
+		}
+		//Kad naðe kraj biljepki reci da jesi
+		if (traziEnd && redovi[i] == "End") {
+			naslaEnd = true;
+		}
+		//Ako naðen end dodaj tu odobrenu bilješku
+		if (naslaEnd) {
+			popravljen.push_back(redovi[i]);
+		}
+
+	}
+	//Zapiši sve opet u biljepke
+	for (int k = 0; k < popravljen.size(); k++) {
+		StringWriteTo1(popravljen[k]);
+	}
+
+	brojBilješke = (brojBilješke + 1) % BilješkeVec.size();
+
+
+	m_bilješkaOdluka->SetString(0, (BilješkeVec[brojBilješke].substr(BilješkeVec[brojBilješke].find(",") + 1, BilješkeVec[brojBilješke].length() - 1)));
+}
+
+void cUcitelj::Obriši(wxCommandEvent& evt) {
+
+	string red = BilješkeVec[brojBilješke];
+
+	BilješkeVec.erase(BilješkeVec.begin() + brojBilješke);
+
+	extern wxString ucitelj;
+
+	vector <string> redovi;
+	string RedT;
+	ifstream Bilješke("Bilješke.txt");
+
+
+	//Stavi sve redove u vektor
+	while (getline(Bilješke, RedT)) {
+		redovi.push_back(RedT);
+	}
+	//Obriši sve u fajlu
+	FILE* BBilješke1 = fopen("Bilješke.txt", "w");
+	fputs("", BBilješke1);
+
+	for (int k = 0; k < redovi.size(); k++) {
+		if (redovi[k] == red) {
+			continue;
+		}
+		StringWriteTo1(redovi[k]);
+	}
+
+
+
+	m_bilješkaOdluka->SetString(0, (BilješkeVec[brojBilješke].substr(BilješkeVec[brojBilješke].find(",") + 1, BilješkeVec[brojBilješke].length() - 1)));
+}
+
+
+void cUcitelj::Next(wxCommandEvent& evt) {
+	brojBilješke = (brojBilješke + 1) % BilješkeVec.size();
+	m_bilješkaOdluka->SetString(0, (BilješkeVec[brojBilješke].substr(BilješkeVec[brojBilješke].find(",") + 1, BilješkeVec[brojBilješke].length() - 1)));
+}
 
 //Poèetak definiranja prozora
 
 cUcitelj::cUcitelj(wxMDIParentFrame* parent, wxString sName) : wxMDIChildFrame(parent, wxID_ANY, sName) {
-	//m_listtest = new wxListBox(this, wxID_ANY, wxPoint(850, 0), wxSize(300, 150));
-	m_grid = new wxGrid(this, -1, wxPoint(50, 250), wxSize(585, 300));
 
-	//Unos ocjene
+	SetIcon(wxICON(sample));
+
+	//m_listtest = new wxListBox(this, wxID_ANY, wxPoint(850, 0), wxSize(300, 150));
+	m_grid = new wxGrid(this, -1, wxPoint(50, 250), wxSize(583, 273));
+
 	m_ocjena = new wxTextCtrl(this, wxID_ANY, "Unesi ocjenu od 1 do 5", wxPoint(50, 630), wxSize(375, 50));
 	m_ocjenabtn = new wxButton(this, 10002, "Submit", wxPoint(485, 630), wxSize(150, 50));
 
-	//Unos bilješke
+
 	m_bilješka = new wxTextCtrl(this, wxID_ANY, "Unesi bilješku", wxPoint(50, 700), wxSize(375, 50));
 	m_bilješkabtn = new wxButton(this, 10001, "Submit", wxPoint(485, 700), wxSize(150, 50));
 
 	wxFont font = wxFont(40, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL);
 
-	//Definiranje grida za prosjeène ocjene
 	m_grid->DisableDragGridSize();
 
 	m_grid->CreateGrid(4, 3);
@@ -406,7 +532,7 @@ cUcitelj::cUcitelj(wxMDIParentFrame* parent, wxString sName) : wxMDIChildFrame(p
 	//m_textime = new wxStaticText(this, wxID_ANY, ucitelj, wxPoint(200, 180), wxSize(150,50));
 
 
-	//Postavi sliku
+
 	wxImage::AddHandler(handler2);
 	wxStaticBitmap* image;
 
@@ -416,7 +542,7 @@ cUcitelj::cUcitelj(wxMDIParentFrame* parent, wxString sName) : wxMDIChildFrame(p
 
 	//Bilješke strpa u grid
 
-	m_gridbilješke = new wxGrid(this, -1, wxPoint(700, 250), wxSize(1200, 700));
+	m_gridbilješke = new wxGrid(this, 10003, wxPoint(700, 250), wxSize(1153, 650));
 
 	m_gridbilješke->DisableDragGridSize();
 
@@ -431,39 +557,44 @@ cUcitelj::cUcitelj(wxMDIParentFrame* parent, wxString sName) : wxMDIChildFrame(p
 	m_gridbilješke->SetColLabelValue(0, "Datum");
 	m_gridbilješke->SetColLabelValue(1, "Bilješka");
 
-	//Podatci za bilješke
+
 	string RedTeksta;
 	ifstream Bilješke("Bilješke.txt");
+
+
+
 	int red = 0;
+
+
+
+	extern bool jeAdmin;
 
 	//Ovvaj bool ode na true kad doðe do imena profesora
 	bool prvi = false;
 
 	wxFont font1 = wxFont(11, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL);
-
-	//Odi po svim bilješkama
 	while (getline(Bilješke, RedTeksta)) {
-		//Ako je tažen prof skipaj umetanje 
+		//Ako je prof skipaj umetanje
 		if (RedTeksta == ucitelj) {
 			prvi = true;
 			continue;
 		}
 		string RedTeksta2;
 
-		//Nakon što je prof naðen odi red po red bilješke dok ne naðeš "End", uzmi bilješku samo ako je "Odobren"
-		if (prvi && RedTeksta.substr(0, RedTeksta.find(";")) == "Odobren") {
-			
-			//Makni odobren s poèetka da imaš "datum,komentar"
+		//Ako odobren i nije prof 
+		if (prvi && ((RedTeksta.substr(0, RedTeksta.find(";")) == "Odobren") || jeAdmin == true)) {
+			//Ako je "End," ubi
 			RedTeksta2 = RedTeksta.substr(RedTeksta.find(";") + 1, RedTeksta.length() - 1);
-
-			//Ako je "End" ubi
 			if (RedTeksta == "End") {
 				break;
 			}
-			//Za svaku odobrenu dodaj red, umetni u 0 i 1 cell podatke, formatiraj
 			m_gridbilješke->InsertRows(red, 1);
 			string Datum = RedTeksta2.substr(0, RedTeksta2.find(","));
 			string Bilješka = RedTeksta2.substr(RedTeksta2.find(",") + 1, RedTeksta2.length() - 1);
+
+
+			BilješkeVec.push_back(RedTeksta);
+
 			m_gridbilješke->SetCellValue(red, 0, Datum);
 			m_gridbilješke->SetCellValue(red, 1, RazbiNaRedove(Bilješka));
 
@@ -472,8 +603,7 @@ cUcitelj::cUcitelj(wxMDIParentFrame* parent, wxString sName) : wxMDIChildFrame(p
 
 			m_gridbilješke->SetCellAlignment(red, 0, wxALIGN_CENTER, wxALIGN_CENTER);
 			m_gridbilješke->SetCellAlignment(red, 1, wxALIGN_LEFT, wxALIGN_CENTER);
-			
-			//Ovisno o duljini bilješke posatvi visinu reda
+
 			m_gridbilješke->SetRowSize(red, (Bilješka.length() / 155) * 16 + 30);
 
 			m_gridbilješke->SetCellFont(red, 0, font1);
@@ -483,28 +613,29 @@ cUcitelj::cUcitelj(wxMDIParentFrame* parent, wxString sName) : wxMDIChildFrame(p
 		}
 	}
 
-	//Daj texbox da displaya ime uèitelja
+	if (jeAdmin) {
+		//Elementi za brisat bilješke
+		m_bilješkaOdobri = new wxButton(this, 10004, "Odobri Bilješku", wxPoint(1300, 125), wxSize(150, 50));
+		m_bilješkaObriši = new wxButton(this, 10005, "Obriši Bilješku", wxPoint(1500, 125), wxSize(150, 50));
+
+		m_bilješkaOdluka = new wxListBox(this, wxID_ANY, wxPoint(825, 50), wxSize(1025, 50));
+		m_bilješkaOdluka->AppendString(BilješkeVec[brojBilješke].substr(BilješkeVec[brojBilješke].find(",") + 1, BilješkeVec[brojBilješke].length() - 1));
+
+		m_nextbtn = new wxButton(this, 10006, "Sljedeæa bilješka", wxPoint(1700, 125), wxSize(150, 50));
+	}
+
+
 	m_test = new wxRichTextCtrl(this, wxID_ANY, ucitelj, wxPoint(220, 130), wxSize(700, 80), wxTE_READONLY | wxBORDER_NONE | wxWANTS_CHARS);
+
+
 	m_test->SetFont(wxFont(40, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
 
-
-	//tEST JE RADI FUNKCIJA, IZBACI U LISTBOX
 	extern wxArrayString podatciUcitelja;
-	/*
-	wxArrayString test = Podatci4R(podatciUcitelja);
-	int broj = test.GetCount();
-	int i = 0;
-	while (i<broj) {
-		m_listtest->AppendString(test[i]);
-		i++;
-	}
-	*/
 
 
 	//Iz jednog arraya unese u tabelu srednje vrijednosti
 	wxArrayString ukupniPodatci = SrednjeVrijednosti(Podatci1R(podatciUcitelja), Podatci2R(podatciUcitelja), Podatci3R(podatciUcitelja), Podatci4R(podatciUcitelja));
 	int f = 0;
-	//Proði po cellovima grida i u svaki stavi one srednje vrijednosti i formatiraj ih
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 3; j++) {
 			m_grid->SetCellValue(i, j, ukupniPodatci[f]);
@@ -514,8 +645,6 @@ cUcitelj::cUcitelj(wxMDIParentFrame* parent, wxString sName) : wxMDIChildFrame(p
 		}
 	}
 }
-
-//Deconstructor
 cUcitelj::~cUcitelj() {
 
 }

@@ -1,6 +1,6 @@
 #pragma once
 #include "wx/wx.h"
-#include "cMain.h"
+#include "FormLogin.h"
 #include "cDnevnik.h"
 
 //Definiranje klase cApp i davanje joj atribuda wxAppa što je kao klasa za prozore
@@ -10,7 +10,7 @@ public:
 	cApp();
 	~cApp();
 private:
-	cMain* m_frame1 = nullptr;
+	FormLogin* m_frame1 = nullptr;
 
 public:
 	virtual bool OnInit();

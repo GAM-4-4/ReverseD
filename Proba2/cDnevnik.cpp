@@ -6,7 +6,7 @@
 #include <fstream>
 #include <algorithm>
 #include <vector>
-
+#include "ReverseD.xpm"
 using namespace std;
 
 //Slušaj za ove eventove
@@ -104,16 +104,16 @@ wxArrayString PodatciUc(wxString ucitelj) {
 
 cDnevnik::cDnevnik() : wxMDIParentFrame(nullptr, wxID_ANY, "FejkDnevnik", wxPoint((wEkran - wDnevnik) / 2, 50), wxSize(wDnevnik, hDnevnik), wxDEFAULT_FRAME_STYLE | wxMAXIMIZE) {
 
+	SetIcon(wxICON(sample));
 
 	//Napravi menubar 
 	m_MenuBar = new wxMenuBar();
 	this->SetMenuBar(m_MenuBar);
 
-	wxMenu* menuFile = new wxMenu();
-	menuFile->Append(1000, "Drek");
 
 
-	m_MenuBar->Append(menuFile, "File");
+
+
 	//Napravi toolbar u koji idu ComboBoxevi
 	m_ToolBar = this->CreateToolBar(wxTB_HORIZONTAL, wxID_ANY);
 
