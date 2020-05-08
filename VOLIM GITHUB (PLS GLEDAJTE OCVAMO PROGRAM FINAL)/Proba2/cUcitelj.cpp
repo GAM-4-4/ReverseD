@@ -139,60 +139,91 @@ wxArrayString Podatci4R(wxArrayString podatci) {
 }
 
 //Iz arraya sa ocjenama spejsanim po kriteriju i odvojenim po razredima daj array sa vrijednostima prosjeka po razredima po kriterijima 
-
+double zbroj = 0;
+int brojbr = 0;
+double broj = 0;
+int brojEnd;
 wxArrayString SrednjeVrijednosti(wxArrayString podatci1, wxArrayString podatci2, wxArrayString podatci3, wxArrayString podatci4) {
 	wxArrayString ukupniPodatci;
 	for (int i = 0; i < 3; i++) {
-		double zbroj = 0;
-		int brojbr = 0;
-		for (int i = 0; i < podatci1.Index("end"); i++) {
-			double broj;
-			podatci1[i].ToDouble(&broj);
-			zbroj += broj;
-			brojbr++;
+		zbroj = 0;
+		brojbr = 0;
+		brojEnd = podatci1.Index("end");
+		if (podatci1[0] + podatci1[1] + podatci1[2] != "endendend") {
+			for (int j = 0; j < brojEnd; j++) {
+				broj = 0;
+				podatci1[0].ToDouble(&broj);
+				zbroj += broj;
+				brojbr++;
+				podatci1.RemoveAt(0, 1);
+			}
+			wxString broj1 = wxString::Format(wxT("%f"), zbroj / brojbr);
+			ukupniPodatci.Add(broj1.substr(0, 3));
+			podatci1.RemoveAt(0, 1);
 		}
-		wxString broj1 = wxString::Format(wxT("%f"), zbroj / brojbr);
-		ukupniPodatci.Add(broj1.substr(0, 3));
-		podatci1.Remove("end");
+		else {
+			ukupniPodatci.Add("0,0");
+		}
 	}
 	for (int i = 0; i < 3; i++) {
-		double zbroj = 0;
-		int brojbr = 0;
-		for (int i = 0; i < podatci2.Index("end"); i++) {
-			double broj;
-			podatci2[i].ToDouble(&broj);
-			zbroj += broj;
-			brojbr++;
+		zbroj = 0;
+		brojbr = 0;
+		brojEnd = podatci2.Index("end");
+		if (podatci2[0] + podatci2[1] + podatci2[2] != "endendend") {
+			for (int j = 0; j < brojEnd; j++) {
+				broj = 0;
+				podatci2[0].ToDouble(&broj);
+				zbroj += broj;
+				brojbr++;
+				podatci2.RemoveAt(0, 1);
+			}
+			wxString broj1 = wxString::Format(wxT("%f"), zbroj / brojbr);
+			ukupniPodatci.Add(broj1.substr(0, 3));
+			podatci2.RemoveAt(0, 1);
 		}
-		wxString broj1 = wxString::Format(wxT("%f"), zbroj / brojbr);
-		ukupniPodatci.Add(broj1.substr(0, 3));
-		podatci2.Remove("end");
+		else {
+			ukupniPodatci.Add("0,0");
+		}
 	}
 	for (int i = 0; i < 3; i++) {
-		double zbroj = 0;
-		int brojbr = 0;
-		for (int i = 0; i < podatci3.Index("end"); i++) {
-			double broj;
-			podatci3[i].ToDouble(&broj);
-			zbroj += broj;
-			brojbr++;
+		zbroj = 0;
+		brojbr = 0;
+		brojEnd = podatci3.Index("end");
+		if (podatci3[0] + podatci3[1] + podatci3[2] != "endendend") {
+			for (int j = 0; j < brojEnd; j++) {
+				broj = 0;
+				podatci3[0].ToDouble(&broj);
+				zbroj += broj;
+				brojbr++;
+				podatci3.RemoveAt(0, 1);
+			}
+			wxString broj1 = wxString::Format(wxT("%f"), zbroj / brojbr);
+			ukupniPodatci.Add(broj1.substr(0, 3));
+			podatci3.RemoveAt(0, 1);
 		}
-		wxString broj1 = wxString::Format(wxT("%f"), zbroj / brojbr);
-		ukupniPodatci.Add(broj1.substr(0, 3));
-		podatci3.Remove("end");
+		else {
+			ukupniPodatci.Add("0,0");
+		}
 	}
 	for (int i = 0; i < 3; i++) {
-		double zbroj = 0;
-		int brojbr = 0;
-		for (int i = 0; i < podatci4.Index("end"); i++) {
-			double broj;
-			podatci4[i].ToDouble(&broj);
-			zbroj += broj;
-			brojbr++;
+		zbroj = 0;
+		brojbr = 0;
+		brojEnd = podatci4.Index("end");
+		if (podatci4[0] + podatci4[1] + podatci4[2] != "endendend") {
+			for (int j = 0; j < brojEnd; j++) {
+				broj = 0;
+				podatci4[0].ToDouble(&broj);
+				zbroj += broj;
+				brojbr++;
+				podatci4.RemoveAt(0, 1);
+			}
+			wxString broj1 = wxString::Format(wxT("%f"), zbroj / brojbr);
+			ukupniPodatci.Add(broj1.substr(0, 3));
+			podatci4.RemoveAt(0, 1);
 		}
-		wxString broj1 = wxString::Format(wxT("%f"), zbroj / brojbr);
-		ukupniPodatci.Add(broj1.substr(0, 3));
-		podatci4.Remove("end");
+		else {
+			ukupniPodatci.Add("0,0");
+		}
 	}
 	return ukupniPodatci;
 }
