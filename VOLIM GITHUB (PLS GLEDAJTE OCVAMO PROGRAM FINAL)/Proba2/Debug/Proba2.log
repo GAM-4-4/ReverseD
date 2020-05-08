@@ -1,0 +1,14 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(467,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Proba2.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  cDnevnik.cpp
+  cUcitelj.cpp
+C:\Users\Naomi\source\repos\Jebi se lično\Proba2\cUcitelj.cpp(134,47): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Naomi\source\repos\Jebi se lično\Proba2\cUcitelj.cpp(244,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Naomi\source\repos\Jebi se lično\Proba2\cUcitelj.cpp(325,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Naomi\source\repos\Jebi se lično\Proba2\cUcitelj.cpp(343,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Naomi\source\repos\Jebi se lično\Proba2\cUcitelj.cpp(362,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Naomi\source\repos\Jebi se lično\Proba2\cUcitelj.cpp(424,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Naomi\source\repos\Jebi se lično\Proba2\cUcitelj.cpp(433,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Naomi\source\repos\Jebi se lično\Proba2\cUcitelj.cpp(449,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Naomi\source\repos\Jebi se lično\Proba2\cUcitelj.cpp(488,20): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  Proba2.vcxproj -> C:\Users\Naomi\source\repos\Jebi se lično\Debug\ReverseD.exe
